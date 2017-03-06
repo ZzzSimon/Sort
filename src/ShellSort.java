@@ -6,17 +6,16 @@
  * 然后再用一个较小的增量（d/2）对它进行分组，在每组中再进行直接插入排序。
  * 继续不断缩小增量直至为1，最后使用直接插入排序完成排序。
  */
-public class ShellSort {
+class ShellSort {
 
-    public static int[] sort(int[] a){
+    static void sort(int[] a){
         int dk = a.length/2;
         while(dk>=1){
             shellInsertSort(a,dk);
             dk/=2;
         }
-        return a;
     }
-    private static int[] shellInsertSort(int[] a,int dk){
+    private static void shellInsertSort(int[] a,int dk){
         for (int i =dk;i<a.length;i++) {
             if(a[i]<a[i-dk]){
                 int j;
@@ -28,6 +27,5 @@ public class ShellSort {
                 a[j+dk]=x;
             }
         }
-        return a;
     }
 }
